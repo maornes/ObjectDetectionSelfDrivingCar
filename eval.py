@@ -17,6 +17,8 @@ workers = 4
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 checkpoint = './checkpoint_ssd300.pth.tar'
 
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
 # Load model checkpoint that is to be evaluated
 checkpoint = torch.load(checkpoint)
 model = checkpoint['model']
