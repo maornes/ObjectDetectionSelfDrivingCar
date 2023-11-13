@@ -1,3 +1,7 @@
+import os
+import torch
+import torch.nn.functional as F
+
 def decimate(tensor, m):
     """
     Decimate a tensor by a factor 'm', i.e. downsample by keeping every 'm'th value.
