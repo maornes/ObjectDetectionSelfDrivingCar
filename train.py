@@ -4,6 +4,16 @@ import torch.optim
 import torch.utils.data
 from model import SSD300, MultiBoxLoss
 from utils import *
+from datasets import dataset, collate_fn
+
+workers = 4 
+batch_size = 16
+
+train_dataset = dataset(csv_file = '/home/matino/anaconda3/envs/testenv/adat_kaggle/labels_train.csv',
+                           root_dir = '/home/matino/anaconda3/envs/testenv/adat_kaggle/images/',
+                           transform = transform)
+
+train_loader = DataLoader(train_dataset, batch_size = batch_size, shuffle = True, collate_fn=collate_fn, num_workers=workers) #TODO(num_workers=workers, pin_memory=True))
 
 # Model parameters
 # Not too many here since the SSD300 has a very specific structure
