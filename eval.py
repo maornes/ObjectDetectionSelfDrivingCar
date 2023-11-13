@@ -2,7 +2,14 @@ from utils import *
 from tqdm import tqdm
 from pprint import PrettyPrinter
 
+
 pp = PrettyPrinter()
+
+test_dataset = dataset(csv_file = '/home/matino/anaconda3/envs/testenv/adat_kaggle/labels_val.csv',
+                           root_dir = '/home/matino/anaconda3/envs/testenv/adat_kaggle/images/',
+                           transform = transform)
+
+test_loader = DataLoader(test_dataset, batch_size = batch_size, shuffle = False, collate_fn=collate_fn)
 
 # Parameters
 batch_size = 16
